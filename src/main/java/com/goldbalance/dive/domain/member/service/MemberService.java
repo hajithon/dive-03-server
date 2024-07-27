@@ -5,8 +5,10 @@ import static com.goldbalance.dive.global.exception.ErrorCode.*;
 import com.goldbalance.dive.domain.member.domain.Member;
 import com.goldbalance.dive.domain.member.dto.MemberLogin;
 import com.goldbalance.dive.domain.member.dto.request.MemberSignin;
+import com.goldbalance.dive.domain.member.dto.response.MemberInfo;
 import com.goldbalance.dive.domain.member.repository.MemberRepository;
 import com.goldbalance.dive.global.exception.CustomException;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -40,5 +42,14 @@ public class MemberService {
 
         log.info("[MemberService] 멤버 로그인 memberId = {}", member.getId());
         return MemberLogin.from(member);
+    }
+
+    public MemberInfo getMemberInfo(String nickname) {
+        Member member =
+                memberRepository.findByNickname(nickname).orElseThrow(() -> new CustomException(MEMBER_NOT_FOUND));
+        List<Member> orderByMonthlyMileageDesc = memberRepository.findByOrderByMonthlyMileageDesc();
+        List<Member> orderByTotalMileageDesc = memberRepository.findByOrderByTotalMileageDesc();
+
+        return MemberInfo.of(member, orderByMonthlyMileageDesc, orderByTotalMileageDesc);
     }
 }
