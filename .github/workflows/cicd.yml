@@ -47,7 +47,7 @@ jobs:
           host: ${{ secrets.DIVE_SERVER_IP }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: docker-compose.yml, nginx.conf
+          source: docker-compose.yml
           target: /home/ubuntu/
   deploy:
     runs-on: ubuntu-latest
