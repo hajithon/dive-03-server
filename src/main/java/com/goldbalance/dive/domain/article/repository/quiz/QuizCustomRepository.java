@@ -1,3 +1,8 @@
 package com.goldbalance.dive.domain.article.repository.quiz;
 
-public interface QuizCustomRepository {}
+import com.goldbalance.dive.domain.article.domain.Quiz;
+import java.util.List;
+
+public interface QuizCustomRepository {
+    List<Quiz> searchQuiz(Long articleId);
+}
