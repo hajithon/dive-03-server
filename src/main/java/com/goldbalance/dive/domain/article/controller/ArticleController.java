@@ -2,6 +2,7 @@ package com.goldbalance.dive.domain.article.controller;
 
 import com.goldbalance.dive.domain.article.domain.Article;
 import com.goldbalance.dive.domain.article.domain.ArticleQueryOption;
+import com.goldbalance.dive.domain.article.dto.ArticleDto;
 import com.goldbalance.dive.domain.article.service.ArticleService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,12 @@ public class ArticleController {
     @GetMapping
     public ResponseEntity<List<Article>> findArticles(@RequestParam ArticleQueryOption queryOption) {
         List<Article> response = articleService.findArticles(queryOption);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{articleId}")
+    public ResponseEntity<ArticleDto> getArticleContents(@PathVariable Long articleId, @RequestBody String nickname) {
+        ArticleDto response = articleService.getArticleContents(nickname, articleId);
         return ResponseEntity.ok(response);
     }
 }
