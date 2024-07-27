@@ -5,14 +5,16 @@ import lombok.*;
 
 @Entity
 @Getter
-@Setter
 @RequiredArgsConstructor
 public class Answer {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "answer_id")
     private Long id;
 
-    private String option;
+    @Enumerated(EnumType.STRING)
+    private Option option;
+
+    private String content;
 
     private boolean correct;
 
@@ -21,8 +23,9 @@ public class Answer {
     private Quiz quiz;
 
     @Builder(access = AccessLevel.PRIVATE)
-    private Answer(final String option, final boolean correct) {
+    private Answer(Option option, String content, boolean correct) {
         this.option = option;
+        this.content = content;
         this.correct = correct;
     }
 }

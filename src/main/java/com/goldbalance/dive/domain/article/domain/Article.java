@@ -7,7 +7,6 @@ import java.util.List;
 
 @Entity
 @Getter
-@Setter
 @RequiredArgsConstructor
 public class Article {
     @Id @GeneratedValue

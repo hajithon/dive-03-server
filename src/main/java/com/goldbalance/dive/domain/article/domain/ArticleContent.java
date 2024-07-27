@@ -27,7 +27,6 @@ import org.springframework.data.convert.ReadingConverter;
  */
 @Entity
 @Getter
-@Setter
 @RequiredArgsConstructor
 public class ArticleContent {
     @Id @GeneratedValue

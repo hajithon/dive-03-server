@@ -13,5 +13,5 @@ public enum Category {
     ENGINEERING("공학"),
     EDUCATION("교육");
 
-    private final String category;
+    private final String value;
 }
