@@ -2,7 +2,6 @@ package com.goldbalance.dive.domain.article.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.convert.ReadingConverter;
 
 /**
  * <br>package name   : com.goldbalance.dive.domain.article.domain
@@ -29,7 +28,8 @@ import org.springframework.data.convert.ReadingConverter;
 @Getter
 @RequiredArgsConstructor
 public class ArticleContent {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
     @Column(name = "subtitle")
