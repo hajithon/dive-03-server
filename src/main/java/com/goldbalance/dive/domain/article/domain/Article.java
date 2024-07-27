@@ -3,13 +3,12 @@ package com.goldbalance.dive.domain.article.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Entity
 @Getter
 @RequiredArgsConstructor
 public class Article {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "article_id")
     private Long id;
 
