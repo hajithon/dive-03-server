@@ -48,4 +48,9 @@ public class Member {
                 .monthlyMileage(0)
                 .build();
     }
+
+    public void addMileages(long amount) {
+        totalMileage += amount;
+        monthlyMileage += amount;
+    }
 }

@@ -1,27 +1,31 @@
 package com.goldbalance.dive.domain.article.dto.response;
 
+import com.goldbalance.dive.domain.member.domain.Member;
 import java.util.List;
 
 public record QuizResult(
-        String nickname, // member
-        int earnedMileages, // 직접 구하기ㅣ
-        int totalMileages, // member
-        int totalQuizzes, // quizRequest
-        int correctQuizzes, // 직접 구하기
-        String title, // 직접 입력
-        List<QuizRecordResponse> response //
-        ) {
-    static class QuizRecordResponse {
-        Long quizId;
-        int number;
-        String submittedAnswer;
-        String correctAnswer;
+        String nickname,
+        long earnedMileages,
+        long totalMileages,
+        int totalQuizzes,
+        int correctQuizzes,
+        String title,
+        List<QuizRecordResponse> response) {
 
-        public QuizRecordResponse(Long quizId, int number, String submittedAnswer) {
-            this.quizId = quizId;
-            this.number = number;
-            this.submittedAnswer = submittedAnswer;
-            this.correctAnswer = submittedAnswer;
-        }
+    public static QuizResult of(
+            Member member,
+            long earnedMileages,
+            int totalQuizzes,
+            int correctQuizzes,
+            String title,
+            List<QuizRecordResponse> response) {
+        return new QuizResult(
+                member.getNickname(),
+                earnedMileages,
+                member.getTotalMileage(),
+                totalQuizzes,
+                correctQuizzes,
+                title,
+                response);
     }
 }

@@ -5,6 +5,7 @@ import com.goldbalance.dive.domain.article.domain.Quiz;
 import com.goldbalance.dive.domain.article.dto.ArticleDto;
 import com.goldbalance.dive.domain.article.dto.request.ArticleQueryOption;
 import com.goldbalance.dive.domain.article.dto.request.QuizRequest;
+import com.goldbalance.dive.domain.article.dto.response.QuizResult;
 import com.goldbalance.dive.domain.article.service.ArticleService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -36,7 +37,8 @@ public class ArticleController {
     }
 
     @PostMapping("/quizzes/{articleId}")
-    public ResponseEntity<?> getQuizResult(@PathVariable Long articleId, @RequestBody QuizRequest quizRequest) {
-        return ResponseEntity.ok().build();
+    public ResponseEntity<QuizResult> gradeQuizzes(@PathVariable Long articleId, @RequestBody QuizRequest request) {
+        QuizResult response = articleService.gradeQuizzes(articleId, request);
+        return ResponseEntity.ok(response);
     }
 }

@@ -1,3 +1,5 @@
 package com.goldbalance.dive.domain.article.dto.request;
 
-public record QuizRecordRequest(Long quizId, int number, String answer) {}
+import com.goldbalance.dive.domain.article.domain.OptionType;
+
+public record QuizRecordRequest(Long quizId, int number, OptionType answer) {}
