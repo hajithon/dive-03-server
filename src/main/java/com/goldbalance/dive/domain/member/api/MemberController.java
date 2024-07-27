@@ -1,5 +1,6 @@
 package com.goldbalance.dive.domain.member.api;
 
+import com.goldbalance.dive.domain.member.dto.MemberLogin;
 import com.goldbalance.dive.domain.member.dto.request.MemberSignin;
 import com.goldbalance.dive.domain.member.service.MemberService;
 import jakarta.validation.Valid;
@@ -22,5 +23,11 @@ public class MemberController {
     public ResponseEntity<Void> signin(@Valid @RequestBody MemberSignin request) {
         memberService.signin(request);
         return ResponseEntity.status(HttpStatusCode.valueOf(201)).build();
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<MemberLogin> login(@Valid @RequestBody MemberLogin request) {
+        MemberLogin response = memberService.login(request);
+        return ResponseEntity.ok(response);
     }
 }
