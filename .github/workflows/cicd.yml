@@ -51,7 +51,7 @@ jobs:
           target: /home/ubuntu/
   deploy:
     runs-on: ubuntu-latest
-    environment: master
+    environment: main
     needs: build
     steps:
       - name: Docker compose
