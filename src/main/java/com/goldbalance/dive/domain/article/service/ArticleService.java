@@ -10,14 +10,14 @@ import com.goldbalance.dive.domain.article.repository.article.ArticleRepository;
 import com.goldbalance.dive.domain.article.repository.quiz.QuizRepository;
 import com.goldbalance.dive.global.exception.CustomException;
 import com.goldbalance.dive.global.exception.ErrorCode;
-import jakarta.transaction.Transactional;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
+@Transactional(readOnly = true)
 public class ArticleService {
 
     private final ArticleRepository articleRepository;
