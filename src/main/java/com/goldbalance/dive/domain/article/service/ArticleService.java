@@ -1,3 +1,21 @@
 package com.goldbalance.dive.domain.article.service;
 
-public class ArticleService {}
+import com.goldbalance.dive.domain.article.domain.Article;
+import com.goldbalance.dive.domain.article.domain.ArticleQueryOption;
+import com.goldbalance.dive.domain.article.repository.ArticleRepository;
+import jakarta.transaction.Transactional;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+@Transactional
+public class ArticleService {
+
+    private final ArticleRepository articleRepository;
+
+    public List<Article> findArticles(ArticleQueryOption queryOption) {
+        return articleRepository.searchArticle(queryOption);
+    }
+}
