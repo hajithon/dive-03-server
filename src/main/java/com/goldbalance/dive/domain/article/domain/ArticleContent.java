@@ -3,27 +3,6 @@ package com.goldbalance.dive.domain.article.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
-/**
- * <br>package name   : com.goldbalance.dive.domain.article.domain
- * <br>file name      : ArticleContent
- * <br>date           : 2024-07-27
- * <pre>
- * <span style="color: white;">[description]</span>
- *
- * </pre>
- * <pre>
- * <span style="color: white;">usage:</span>
- * {@code
- *
- * } </pre>
- * <pre>
- * modified log :
- * =======================================================
- * DATE           AUTHOR               NOTE
- * -------------------------------------------------------
- * 2024-07-27        SeungHoon              init create
- * </pre>
- */
 @Entity
 @Getter
 @RequiredArgsConstructor
