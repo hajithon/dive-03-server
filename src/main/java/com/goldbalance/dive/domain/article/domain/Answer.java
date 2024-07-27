@@ -7,7 +7,8 @@ import lombok.*;
 @Getter
 @RequiredArgsConstructor
 public class Answer {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "answer_id")
     private Long id;
 
