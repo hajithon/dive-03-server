@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public enum Option {
+public enum OptionType {
     ONE("1"),
     TWO("2"),
     THREE("3"),
