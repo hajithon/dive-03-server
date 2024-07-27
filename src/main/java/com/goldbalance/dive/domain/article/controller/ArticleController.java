@@ -2,6 +2,7 @@ package com.goldbalance.dive.domain.article.controller;
 
 import com.goldbalance.dive.domain.article.domain.Article;
 import com.goldbalance.dive.domain.article.domain.Quiz;
+import com.goldbalance.dive.domain.article.dto.ArticleDto;
 import com.goldbalance.dive.domain.article.dto.request.ArticleQueryOption;
 import com.goldbalance.dive.domain.article.service.ArticleService;
 import java.util.List;
@@ -24,6 +25,12 @@ public class ArticleController {
     @GetMapping("/quizzes/{articleId}")
     public ResponseEntity<List<Quiz>> findQuizzes(@PathVariable Long articleId, @RequestBody String nickname) {
         List<Quiz> response = articleService.findQuizzes(articleId);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{articleId}")
+    public ResponseEntity<ArticleDto> getArticleContents(@PathVariable Long articleId, @RequestBody String nickname) {
+        ArticleDto response = articleService.getArticleContents(nickname, articleId);
         return ResponseEntity.ok(response);
     }
 }
