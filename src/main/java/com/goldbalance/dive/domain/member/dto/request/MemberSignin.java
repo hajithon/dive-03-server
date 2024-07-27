@@ -1,3 +1,5 @@
 package com.goldbalance.dive.domain.member.dto.request;
 
-public record MemberSignin(String nickname) {}
+import jakarta.validation.constraints.NotBlank;
+
+public record MemberSignin(@NotBlank String nickname) {}
