@@ -6,10 +6,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public enum Option {
-    A("Option A"),
-    B("Option B"),
-    C("Option C"),
-    D("Option D");
+    ONE("1"),
+    TWO("2"),
+    THREE("3"),
+    FOUR("4");
 
-    private final String name;
+    private final String number;
 }
