@@ -8,21 +8,21 @@ import lombok.*;
 @RequiredArgsConstructor
 public class Quiz {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "quiz_id")
     private Long id;
 
     private String question;
 
-    private int order;
+    private int sequence;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "article_id")
     private Article article;
 
     @Builder(access = AccessLevel.PRIVATE)
-    private Quiz(String question, int order) {
+    private Quiz(String question, int sequence) {
         this.question = question;
-        this.order = order;
+        this.sequence = sequence;
     }
 }

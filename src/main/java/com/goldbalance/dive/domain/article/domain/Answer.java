@@ -13,7 +13,7 @@ public class Answer {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private Option option;
+    private OptionType optionType;
 
     private String content;
 
@@ -24,8 +24,8 @@ public class Answer {
     private Quiz quiz;
 
     @Builder(access = AccessLevel.PRIVATE)
-    private Answer(Option option, String content, boolean correct) {
-        this.option = option;
+    private Answer(OptionType optionType, String content, boolean correct) {
+        this.optionType = optionType;
         this.content = content;
         this.correct = correct;
     }
