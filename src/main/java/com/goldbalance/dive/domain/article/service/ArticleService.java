@@ -1,6 +1,7 @@
 package com.goldbalance.dive.domain.article.service;
 
 import com.goldbalance.dive.domain.article.domain.Article;
+import com.goldbalance.dive.domain.article.domain.MemberQueryOption;
 import com.goldbalance.dive.domain.article.repository.ArticleRepository;
 import jakarta.transaction.Transactional;
 import java.util.List;
@@ -14,11 +15,7 @@ public class ArticleService {
 
     private final ArticleRepository articleRepository;
 
-    public List<Article> findAllArticles() {
-        return articleRepository.findAllArticles();
-    }
-
-    public List<Article> findArticlesByInput(String input) {
-        return articleRepository.searchArticle(input);
+    public List<Article> findArticles(MemberQueryOption queryOption) {
+        return articleRepository.searchArticle(queryOption);
     }
 }
